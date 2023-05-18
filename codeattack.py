@@ -100,6 +100,8 @@ def run_attack():
     # config['use_imp_words'] = args.use_imp
     config['theta'] = args.theta
 
+    config['do_lower'] = 0
+    
     print(args)
     print(config)
 
