@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 import torch
 
-from transformers import RobertaConfig, RobertaTokenizer, RobertaConfig, RobertaForMaskedLM
+from transformers import RobertaConfig, RobertaTokenizer, RobertaConfig, RobertaForMaskedLM, T5ForConditionalGeneration
 from transformers import BertTokenizer, BertForMaskedLM
 
 from get_models import get_roberta_model, get_codet5_model, get_codebert_model, get_graphcodebert_model
@@ -159,7 +159,12 @@ def run_attack():
     victim_model['name'] = config['victim_model']
 
     if config['victim_model'] == 'codet5':
-        victim_model['model'], victim_model['tokenizer'] = get_codet5_model(config)
+        # victim_model['model'], victim_model['tokenizer'] = get_codet5_model(config) #not working
+        if config['task'] == 'summarize':
+            victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base-multi-sum')
+        else:
+            victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
+        victim_model['tokenizer'] = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')
     elif config['victim_model'] == 'plbart':
         victim_model['model'], victim_model['tokenizer'] = get_plbart_model(config) 
     elif config['victim_model'] == 'codebert':
