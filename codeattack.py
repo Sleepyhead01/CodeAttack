@@ -70,17 +70,17 @@ def dump_features(features, output, idx):
 def run_attack():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--attack_model", type=str, help='Model that attacks')
+    parser.add_argument("--attack_model", type=str, help='Model that attacks', default='codebert')
     # parser.set_defaults(attack_model='codebert')
-    parser.add_argument("--victim_model", type=str, help='Model to attack')
-    parser.add_argument("--task", type=str, help='task')
-    parser.add_argument("--lang", type=str, help='language [java_cs, cs_java, java_small]')
-    parser.add_argument("--use_ast", type=int, help='Use AST Constraint or not')
-    parser.add_argument("--use_dfg", type=int, help='Use DFG Constraint or not')
-    parser.add_argument("--out_dirname", type=str, help="Output directory")
+    parser.add_argument("--victim_model", type=str, help='Model to attack', default='codet5')
+    parser.add_argument("--task", type=str, help='task', default='translation')
+    parser.add_argument("--lang", type=str, help='language [java_cs, cs_java, java_small]', default='java_small')
+    parser.add_argument("--use_ast", type=int, help='Use AST Constraint or not', default=0)
+    parser.add_argument("--use_dfg", type=int, help='Use DFG Constraint or not', default=0)
+    parser.add_argument("--out_dirname", type=str, help="Output directory", default='')
     parser.add_argument("--input_lang", type=str, help="Input Language [Only for Graphcodebert]")
-    parser.add_argument("--use_imp", type=int, help='Whether to randomly select imp words or not')
-    parser.add_argument("--theta", type=float, help='How many tokens to attack threshold')
+    parser.add_argument("--use_imp", type=int, help='Whether to randomly select imp words or not', default=0)
+    parser.add_argument("--theta", type=float, help='How many tokens to attack threshold', default=0.4) #no value explicitly specified in the paper, used the value in 'configs/config_translate.yaml'
     # parser.add_argument("--allow_unk", type=int, help='Allow [UNK] as substitute during bert-attack')
 
     args = parser.parse_args()
