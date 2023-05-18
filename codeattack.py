@@ -85,7 +85,7 @@ def run_attack():
 
     args = parser.parse_args()
     
-    config_path = os.path.join(parent_dir, 'configs/config_translate.yaml')
+    config_path = os.path.join(parent_dir, 'configs/config_summary.yaml')
     config = yaml.safe_load(open(config_path))
 
     config['victim_model'] = args.victim_model
