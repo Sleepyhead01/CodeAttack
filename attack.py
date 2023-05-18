@@ -16,8 +16,8 @@ import bleu
 from important_words import get_important_scores, get_important_scores_graphcodebert
 from substitues import get_substitues
 
-from textfooler.get_substitutes_textfooler import get_substitutes_textfooler
-from textfooler.get_substitutes_textfooler import get_similarity_score
+# from textfooler.get_substitutes_textfooler import get_substitutes_textfooler
+# from textfooler.get_substitutes_textfooler import get_similarity_score
 
 from graphcodebert_input import convert_examples_to_features
 

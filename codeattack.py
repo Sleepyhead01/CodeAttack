@@ -19,7 +19,7 @@ from get_models import get_roberta_model, get_codet5_model, get_codebert_model, 
 from attack import attack
 from get_data import get_summarization_data, get_translation_data
 
-from textfooler.utils_textfooler import get_var, get_sim_predictor
+# from textfooler.utils_textfooler import get_var, get_sim_predictor
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 # os.environ['CUDA_VISIBLE_DEVICES']= '1'
