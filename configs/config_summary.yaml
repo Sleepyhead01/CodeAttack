@@ -1,4 +1,4 @@
-task : 'summarization'
+task : 'summarize'
 victim_model : 'codet5'
 input : 'pl'
 output : 'nl'
