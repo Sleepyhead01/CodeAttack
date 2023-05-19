@@ -9,7 +9,9 @@ Pre-trained programming language (PL) models (such as CodeT5, CodeBERT, GraphCod
 
 ## Run
 
-To install the dependencies please execute the command ```pip install -r requirements.txt```. To run the code, please execute ```python codeattack.py ``` with the following arguments:
+Change the path to dataset in the ```config_data.yaml```. The parameters and task can be changed from ```config_summary.yaml``` or ```config_translate.yaml```.
+
+To install the dependencies please execute the command ```pip install -r requirements.txt```. To run the code, please execute ```python codeattack.py ``` with the following arguments(optional):
 
 |Argument |Description|
 |--- |--- |
