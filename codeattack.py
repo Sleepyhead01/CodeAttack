@@ -175,8 +175,11 @@ def run_attack():
         victim_model['model'], victim_model['tokenizer'] = get_graphcodebert_model(config) 
     elif config['victim_model'] == 'roberta':
         victim_model['model'], victim_model['tokenizer'] = get_roberta_model(config) 
-
-    victim_model['model'].to(device)
+    elif config['victim_model'] == 'starcoder':
+        victim_model['model'], victim_model['tokenizer'] = None, None
+    
+    if config['victim_model'] != 'starcoder':
+        victim_model['model'].to(device)
     
     if config['task'] == 'summarize':
         features = get_summarization_data(config['data_path_x'])
