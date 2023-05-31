@@ -161,12 +161,13 @@ def run_attack():
     victim_model['name'] = config['victim_model']
 
     if config['victim_model'] == 'codet5':
-        # victim_model['model'], victim_model['tokenizer'] = get_codet5_model(config) #not working
-        if config['task'] == 'summarize':
-            victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base-multi-sum')
-        else:
-            victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
-        victim_model['tokenizer'] = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')
+        # # victim_model['model'], victim_model['tokenizer'] = get_codet5_model(config) #not working
+        # if config['task'] == 'summarize':
+        #     victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base-multi-sum')
+        # else:
+        #     victim_model['model'] = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
+        # victim_model['tokenizer'] = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')
+        victim_model['model'], victim_model['tokenizer'] = get_codet5_model(config) 
     elif config['victim_model'] == 'plbart':
         victim_model['model'], victim_model['tokenizer'] = get_plbart_model(config) 
     elif config['victim_model'] == 'codebert':
